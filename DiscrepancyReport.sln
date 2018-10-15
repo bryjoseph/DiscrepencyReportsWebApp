@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscrepancyReport", "DiscrepancyReport\DiscrepancyReport.csproj", "{1146F872-D787-4875-B406-D9AC3CF4242B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1146F872-D787-4875-B406-D9AC3CF4242B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1146F872-D787-4875-B406-D9AC3CF4242B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1146F872-D787-4875-B406-D9AC3CF4242B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1146F872-D787-4875-B406-D9AC3CF4242B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2332617F-6972-4A30-ADC9-C7B07EA8D977}
+	EndGlobalSection
+EndGlobal
