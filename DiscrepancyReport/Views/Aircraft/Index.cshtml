@@ -1,0 +1,78 @@
+﻿@model IEnumerable<DiscrepancyReport.Models.Aircraft>
+<!--PaginatedList<DiscrepancyReport.Models.Aircraft>-->
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Available Aircraft</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary" role="button" aria-pressed="true">Create New</a>
+</p>
+
+<!--SearchBox-->
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Search: <input type="text" name="searchString" value="@ViewData["CurrentSearchFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a style="text-decoration:none; color:black" asp-action="Index">Back To Full List</a>
+        </p>
+    </div>
+</form>
+
+
+<table class="table table-sortable">
+    <thead>
+        <tr>
+            <th>
+                <a style="text-decoration:none; color:black" asp-action="Index" asp-route-sortOrder="@ViewData["FaaNumberSortParm"]">@Html.DisplayNameFor(model => model.FaaNumber)</a>
+                <span class="glyphicon glyphicon-triangle-bottom"></span>
+                <span class="glyphicon glyphicon-triangle-top"></span>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EasaNumber)
+            </th>
+            <th class="asc desc">
+                <a style="text-decoration:none; color:black" asp-action="Index" asp-route-sortOrder="@ViewData["TailNumberSortParm"]">@Html.DisplayNameFor(model => model.TailNumber)</a>
+                <span class="glyphicon glyphicon-triangle-bottom"></span>
+                <span class="glyphicon glyphicon-triangle-top"></span>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftModel.ModelType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftModel.Manufacturer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FaaNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EasaNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TailNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AircraftModel.ModelType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AircraftModel.Manufacturer)
+                </td>
+                <td>
+                    <a style="text-decoration:none;" asp-action="Edit" asp-route-id="@item.ID">Edit Aircraft</a> |
+                    <a style="text-decoration:none;" asp-action="Details" asp-route-id="@item.ID">Details of Aircraft</a> |
+                    <a style="text-decoration:none;" asp-action="Delete" asp-route-id="@item.ID">Delete Aircraft</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

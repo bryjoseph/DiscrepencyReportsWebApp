@@ -1,0 +1,50 @@
+﻿@model DiscrepancyReport.Models.Aircraft
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>New Aircraft Data</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FaaNumber" class="control-label"></label>
+                <input asp-for="FaaNumber" class="form-control" />
+                <span asp-validation-for="FaaNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EasaNumber" class="control-label"></label>
+                <input asp-for="EasaNumber" class="form-control" />
+                <span asp-validation-for="EasaNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TailNumber" class="control-label"></label>
+                <input asp-for="TailNumber" class="form-control" />
+                <span asp-validation-for="TailNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftModel" class="control-label"></label>
+                <select asp-for="AircraftModelID" class="form-control" asp-items="ViewBag.ID">
+                    <option value="">--- Select Aircraft Model ---</option>
+                </select>
+                <span asp-validation-for="AircraftModelID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

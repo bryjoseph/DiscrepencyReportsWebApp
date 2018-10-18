@@ -1,0 +1,82 @@
+﻿@model DiscrepancyReport.Models.Aircraft
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details of Aircraft</h2>
+
+<div>
+    <h4>Aircraft</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FaaNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FaaNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EasaNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EasaNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TailNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TailNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AircraftModel.ModelType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AircraftModel.ModelType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AircraftModel.Manufacturer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AircraftModel.Manufacturer)
+        </dd>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th colspan="5" style="text-align:center">Aircraft Assignment Details</th>
+                </tr>
+                <tr>
+                    <th style="text-align:center">Region Code</th>
+                    <th style="text-align:center">Region Name</th>
+                    <th style="text-align:center">Location Code</th>
+                    <th style="text-align:center">Planned Assignment</th>
+                    <th style="text-align:center">Unplanned Assignment</th>
+                </tr>
+                @foreach (var item in Model.AircraftLocationAssignments)
+                {
+                    <tr>
+                        <td style="text-align:center">
+                            @Html.DisplayFor(modelItem => item.Location.RegionCode)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.DisplayFor(modelItem => item.Location.RegionName)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.DisplayFor(modelItem => item.Location.LocationCode)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.DisplayFor(modelItem => item.Planned)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.DisplayFor(modelItem => item.Unplanned)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
