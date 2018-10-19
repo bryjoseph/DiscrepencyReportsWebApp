@@ -78,23 +78,6 @@ namespace DiscrepancyReport.Controllers
             // return View(await PaginatedList<Aircraft>.CreateAsync(aircrafts.AsNoTracking(), page ?? 1, pageSize));
             return View(await aircrafts.ToListAsync());
         }
-        //public async Task<IActionResult> Index(int? id)
-        //{
-        //    var viewModel = new AircraftIndexData();
-        //    viewModel.Aircrafts = await _context.Aircrafts
-        //        .Include(a => a.AircraftModel)
-        //        .AsNoTracking()
-        //        .OrderBy(i => i.FaaNumber)
-        //        .ToListAsync();
-
-        //    if(id != null)
-        //    {
-        //        ViewData["ID"] = id.Value;
-        //        Aircraft aircraft = viewModel.Aircrafts.Where(
-        //            a => a.ID == id.Value).Single();
-        //    }
-        //    return View(viewModel);
-        //}
 
         // GET: Aircraft/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -131,32 +114,6 @@ namespace DiscrepancyReport.Controllers
             return View();
         }
 
-        // POST: Aircraft/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create(
-        //    [Bind("FaaNumber,EasaNumber,TailNumber")] Aircraft aircraft)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            _context.Add(aircraft);
-        //            await _context.SaveChangesAsync();
-        //            return RedirectToAction(nameof(Index));
-        //        }
-        //    }
-        //    catch (DbUpdateException /* ex */)
-        //    {
-        //        // Log the error (do so by uncommenting the ex to write a log)
-        //        ModelState.AddModelError("", "Unable to save changes " +
-        //            "Try again, and if the problem persists " +
-        //            "see your system administrator");
-        //    }
-        //    return View(aircraft);
-        //}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
@@ -172,23 +129,6 @@ namespace DiscrepancyReport.Controllers
             return View(aircraft);
         }
 
-        // GET: Aircraft/Edit/5
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var aircraft = await _context.Aircrafts
-        //        .Include(a => a.AircraftModel)
-        //        .SingleOrDefaultAsync(m => m.ID == id);
-        //    if (aircraft == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(aircraft);
-        //}
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -208,39 +148,6 @@ namespace DiscrepancyReport.Controllers
             return View(aircraft);
         }
 
-        // POST: Aircraft/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost, ActionName("Edit")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> EditPost(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var aircraftToUpdate = await _context.Aircrafts.SingleOrDefaultAsync(a => a.ID == id);
-        //    if (await TryUpdateModelAsync<Aircraft>(
-        //        aircraftToUpdate,
-        //        "",
-        //        a => a.FaaNumber, a => a.EasaNumber, a => a.TailNumber))
-        //    {
-        //        try
-        //        {
-        //            await _context.SaveChangesAsync();
-        //            return RedirectToAction(nameof(Index));
-        //        }
-        //        catch (DbUpdateException /* ex */)
-        //        {
-        //            // Log the error ( uncomment the ex to write a log)
-        //            ModelState.AddModelError("", "Unable to save changes " +
-        //                                    "Try again, and if the problem persists " +
-        //                                    "see your system administrator");
-        //        }
-        //    }
-        //    return NotFound();
-        //}
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditPost(int? id)
