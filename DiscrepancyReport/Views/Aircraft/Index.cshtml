@@ -8,7 +8,7 @@
 <h2>Available Aircraft</h2>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary" role="button" aria-pressed="true">Create New</a>
+    <a asp-action="Create" class="btn btn-primary" role="button">Create New</a>
 </p>
 
 <!--SearchBox-->
@@ -68,9 +68,9 @@
                     @Html.DisplayFor(modelItem => item.AircraftModel.Manufacturer)
                 </td>
                 <td>
-                    <a style="text-decoration:none;" asp-action="Edit" asp-route-id="@item.ID">Edit Aircraft</a> |
-                    <a style="text-decoration:none;" asp-action="Details" asp-route-id="@item.ID">Details of Aircraft</a> |
-                    <a style="text-decoration:none;" asp-action="Delete" asp-route-id="@item.ID">Delete Aircraft</a>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit Aircraft</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details of Aircraft</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete Aircraft</a>
                 </td>
             </tr>
         }

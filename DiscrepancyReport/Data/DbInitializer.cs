@@ -94,6 +94,11 @@ namespace DiscrepancyReport.Data
                 new Title{TitleName="Government Official"},
                 new Title{TitleName="Supervisor"}
             };
+            foreach(Title t in titles)
+            {
+                context.Titles.Add(t);
+            }
+            context.SaveChanges();
 
             var employees = new Employee[]
             {
@@ -108,6 +113,8 @@ namespace DiscrepancyReport.Data
                 context.Employees.Add(e);
             }
             context.SaveChanges();
+
+            // adding 
         }
     }
 }

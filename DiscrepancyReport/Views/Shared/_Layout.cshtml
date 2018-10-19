@@ -31,12 +31,30 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Aircraft" asp-action="Index">Aircraft</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle"
+                           data-toggle="dropdown"
+                           href="#"
+                           role="button"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            Manage Resources
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" asp-controller="Aircraft" asp-action="Index">Manage Aircrafts</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a class="dropdown-item" href="#">Manage Locations</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a class="dropdown-item" href="#">Manage Aircraft Assignments</a></li>
+                        </ul>
+                    </li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
